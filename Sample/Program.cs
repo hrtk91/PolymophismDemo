@@ -23,7 +23,8 @@ namespace Sample
     /// </summary>
     public interface IHuman : IRunnable
     {
-
+        void BeforeRun();
+        void AfterRun();
     }
 
     /// <summary>
@@ -31,7 +32,15 @@ namespace Sample
     /// </summary>
     public class Human : IHuman
     {
-        public void Run() => Console.WriteLine("Human Run");
+        public void Run()
+        {
+            BeforeRun();
+            Console.WriteLine("Human Run");
+            AfterRun();
+        }
+        
+        public void BeforeRun() => Console.WriteLine("Before Human Run");
+        public void AfterRun() => Console.WriteLine("After Human Run");
     }
 
     /// <summary>
@@ -133,6 +142,7 @@ namespace Sample
             // ただし、一部のオブジェクトに関して処理を分岐する。
             // (大体のオブジェクトには同じ処理を適応する)
 
+            // taminato:↓HumanにBeforeとAfterのメソッド追加でどう？
             // 人間を処理する場合にはひと手間加える
             if (runnable is IHuman)
             {
