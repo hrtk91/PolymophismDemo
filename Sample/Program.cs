@@ -60,12 +60,6 @@ namespace Sample
 
     class Program
     {
-        /// <summary>
-        /// 抽象的に実行できるオブジェクトを実行する
-        /// </summary>
-        /// <param name="runnable"></param>
-        static void Runner(IRunnable runnable) => runnable.Run();
-
         static void Main(string[] args)
         {
             Console.WriteLine("多態性を用いない実行、すべてのパターンを直接記述");
